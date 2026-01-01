@@ -1,0 +1,85 @@
+1. Adaptation Domain: Climate-Crop Dynamics
+This area focuses on how your ML models will predict yield risks based on shifting environmental variables.
+Key Knowledge Points:
+Climate Thresholds: Understanding "Critical Temperatures" (e.g., when heat prevents pollination in wheat) and "Growing Degree Days" (GDD).
+Hydrological Stress: How erratic rainfall patterns (delays in monsoon, dry spells) impact different growth stages (vegetative vs. flowering).
+Pollution Exposure: The role of Ozone (O3) and Black Carbon in stunting photosynthesis and reducing crop "greenness" (NDVI).
+Extreme Event Attribution: Differentiating between seasonal variation and extreme events like heatwaves or flash floods.
+Top Research Sources:
+World Bank: Effects of Climate Change on Agriculture – High-level overview of global trends.
+NICRA (India): Climate Resilient Agriculture Manual – Excellent for specific Indian crop thresholds and rainfall patterns.
+IPCC Special Report: Land and Climate – Scientific depth on how pollution and temperature interact.
+
+2. Mitigation Domain: Energy & Water Efficiency
+This area focuses on using ML to optimise the "Green Farm" infrastructure, specifically demand-side management of renewable energy.
+Key Knowledge Points:
+Solar & Wind Forecasting: Understanding GHI (Global Horizontal Irradiance) for solar and Wind Shear/Speed for windmills. Models like LSTMs are used here for time-series forecasting.
+Energy Demand Prediction: Calculating the "Peak Load" of irrigation pumps and processing units to ensure the renewable micro-grid doesn't fail.
+Precision Irrigation (Smart Water): Learning about Evapotranspiration (ET) rates. ML helps in "Deficit Irrigation"—applying just enough water to keep the plant alive without wasting energy on over-pumping.
+Grid Management: Strategies for energy storage (batteries) and distribution according to real-time farm usage data.
+Top Research Sources:
+Netafim: Precision Irrigation Principles – Industry leader's guide on water-energy efficiency.
+MDPI: Renewable Energy Forecasting with ML – Technical paper on how to use Neural Networks for solar/wind prediction.
+IRENA (International Renewable Energy Agency) – Reports on powering agriculture with renewables.
+
+1. Project Objectives
+These are the specific goals your project aims to achieve. They should be "SMART" (Specific, Measurable, Achievable, Relevant, Time-bound).
+Predictive Adaptation: To develop machine learning models (like Random Forest or XGBoost) that predict crop yield variability based on temperature, rainfall, and air pollution (O3, NO2) fluctuations, pollution exposure, etc
+Energy Optimisation: To create a forecasting system for wind speed and solar radiation to optimise the scheduling of farm operations (like irrigation) using renewable energy.
+Water Conservation: To build an intelligent irrigation trigger system that reduces water waste by analysing soil moisture and evapotranspiration data.
+Impact Assessment: To quantify the economic benefits of switching from traditional grid-dependent farming to climate-resilient, renewable-powered agriculture.
+
+2. Project Scope
+The scope defines the "boundaries." It tells your team what is included and what is excluded so the project doesn't become too large to manage.
+What is IN Scope:
+Data Analysis: Historical climate data (10–20 years), air quality indices, and renewable energy potential (GHI/Wind speed).
+Model Development: Building and comparing at least 2–3 ML models (e.g., Regression for yield, LSTMs for energy forecasting).
+Feature Engineering: Identifying which factors (like "Heat stress days" or "PM2.5 levels") most significantly affect farm productivity.
+Strategy Formulation: A final recommendation report on when to plant and how to distribute power.
+What is OUT of Scope:
+Hardware Implementation: We are not physically building the sensors or installing solar panels; we are building the intelligence (the software/model) behind them.
+Real-time IoT Cloud Hosting: We will focus on historical and simulated real-time data rather than a live 24/7 cloud deployment.
+Genetic Engineering: We are suggesting "Climate-Smart Varieties," not actually developing them in a lab.
+
+
+1. Adaptation: Predicting Yield & Pollution Risks
+Since agricultural data (yield vs. climate) often has complex, non-linear relationships, simple linear models might fail.
+Random Forest (RF) & XGBoost:
+Why: These are "Ensemble" models. They are excellent at handling "tabular" data like temperature, rainfall, and PM2.5 levels to predict crop yield. They are less prone to overfitting than a single decision tree.
+Study Goal: Learn how "Feature Importance" works to see which variable (e.g., heat or ozone) hurts the crop most.
+Support Vector Regression (SVR):
+Why: Good for smaller datasets where you need to find a line that "best fits" the data while ignoring minor outliers.
+Convolutional Neural Networks (CNNs):
+Why: If your team decides to use satellite imagery or leaf photos to assess health (NDVI), CNNs are the industry standard for image recognition.
+2. Mitigation: Renewable Energy & Water Forecasting
+Renewable energy (Wind/Solar) and water usage are Time-Series problems—the value today depends on the value yesterday.
+Long Short-Term Memory (LSTM) Networks:
+Why: A type of Recurrent Neural Network (RNN) designed to remember patterns over long periods. Essential for predicting solar radiation and wind speed based on historical weather trends.
+Multiple Linear Regression (MLR):
+Why: A "baseline" model. Use this first to see if simple correlations between wind speed and power generation are enough before moving to complex AI.
+Prophet (by Meta):
+Why: An easy-to-use tool specifically for forecasting time-series data that has strong "seasonality" (e.g., more solar power in summer, more wind in monsoon).
+
+Summary of Models for the Team
+Project Task
+Best Model(s) to Study
+Why this model?
+Crop Yield Prediction
+Random Forest, XGBoost
+Handles complex interactions between climate and pollution.
+Solar/Wind Forecasting
+LSTM, Prophet
+Excellent at detecting daily and seasonal energy patterns.
+Smart Irrigation Trigger
+Decision Trees, ANN
+Can classify "To Water" or "Not to Water" based on soil sensors.
+Pollution Dispersion
+Regression, TabNet
+Predicts how PM2.5 spreads across the farm layout.
+
+Where to Study These (Sources):
+Scikit-Learn Documentation: The "Bible" for Random Forest, Regression, and SVR.
+Keras/TensorFlow Time-Series Guide: Best for learning how LSTMs work for energy forecasting.
+Kaggle: Agriculture Datasets: Have your team find a "Crop Yield" or "Solar Prediction" dataset here to practice these models.
+
+
